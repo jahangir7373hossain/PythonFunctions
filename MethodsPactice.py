@@ -458,7 +458,21 @@ class Methods:
             result.append(map.get(i))
         return result
 
+    def mostConsecutiveNum(arr):
+        count = 0
+        currCount = 1
+        length = len(arr) - 1
+        for i in range(length):
+            if arr[i] == arr[i + 1]:
+                currCount = currCount + 1
+            if currCount > count:
+                count = currCount
+                currCount = 1
+        return count
 
+
+arrmcn = [1, 1, 0, 1, 1, 1]
+print("mostConsecutiveNum: ",Methods.mostConsecutiveNum(arrmcn))
 arrstc = [8, 1, 2, 2, 3]
 print("smallerThenCurrent", Methods.smallerThenCurrent(arrstc))
 sarr = [1, 4, 3, 2]
@@ -520,6 +534,3 @@ print("Factorial number:", Methods.FactorialNum(5))
 print(Methods.reverseString("Automation"))
 num = [1, 2, 3, 4]
 print(Methods.getAllindex(num))
-
-
-
