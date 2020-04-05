@@ -1,4 +1,5 @@
 import sys
+from array import _array_reconstructor
 from builtins import int, set
 
 
@@ -470,9 +471,32 @@ class Methods:
                 currCount = 1
         return count
 
+    def sortestDistanceOfWord(text, str1, str2):
+        array = text.split(' ')
+        index1 = 0
+        index2 = 0
+        map = {}
+        for i in range(len(array)):
+            if array[i] not in map:
+                map[array[i]] = 1
+                if array[i] == str1:
+                    index1 = i+1
+                elif array[i] == str2:
+                    index2 = i+1
+                    break
+            else:
+                map[array[i]] = map.get(array[i]) + 1
+                if array[i] == str2:
+                    index2 = i+1
+        sortDis = index2 - index1
+        if sortDis < 0:
+            sortDis = index1 - index2
+        return sortDis
 
+
+print("sortestDistanceOfWord: ", Methods.sortestDistanceOfWord('practice makes perfect coding makes', 'practice', 'makes'))
 arrmcn = [1, 1, 0, 1, 1, 1]
-print("mostConsecutiveNum: ",Methods.mostConsecutiveNum(arrmcn))
+print("mostConsecutiveNum: ", Methods.mostConsecutiveNum(arrmcn))
 arrstc = [8, 1, 2, 2, 3]
 print("smallerThenCurrent", Methods.smallerThenCurrent(arrstc))
 sarr = [1, 4, 3, 2]
