@@ -480,21 +480,36 @@ class Methods:
             if array[i] not in map:
                 map[array[i]] = 1
                 if array[i] == str1:
-                    index1 = i+1
+                    index1 = i + 1
                 elif array[i] == str2:
-                    index2 = i+1
+                    index2 = i + 1
                     break
             else:
                 map[array[i]] = map.get(array[i]) + 1
                 if array[i] == str2:
-                    index2 = i+1
+                    index2 = i + 1
         sortDis = index2 - index1
         if sortDis < 0:
             sortDis = index1 - index2
         return sortDis
 
+    def longestContinuousIncreasingSubsequence(arr):
+        longestOverAll = 0;
+        longestTillNow = 0;
+        length = len(arr) - 1
+        for i in range(length):
+            if arr[i] < arr[i + 1]:
+                longestTillNow += 1
+                longestOverAll = max(longestOverAll, longestTillNow)
+            else:
+                longestOverAll = 1
+        return longestOverAll
 
-print("sortestDistanceOfWord: ", Methods.sortestDistanceOfWord('practice makes perfect coding makes', 'practice', 'makes'))
+
+arrlcis = [1,3,5,4,7]
+print("longestContinuousIncreasingSubsequence: ", Methods.longestContinuousIncreasingSubsequence(arrlcis))
+print("sortestDistanceOfWord: ",
+      Methods.sortestDistanceOfWord('practice makes perfect coding makes', 'practice', 'makes'))
 arrmcn = [1, 1, 0, 1, 1, 1]
 print("mostConsecutiveNum: ", Methods.mostConsecutiveNum(arrmcn))
 arrstc = [8, 1, 2, 2, 3]
