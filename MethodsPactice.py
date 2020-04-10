@@ -466,9 +466,12 @@ class Methods:
         for i in range(length):
             if arr[i] == arr[i + 1]:
                 currCount = currCount + 1
-            if currCount > count:
-                count = currCount
+            else:
+                if currCount > count:
+                    count = currCount
                 currCount = 1
+        if currCount > count:
+            count = currCount
         return count
 
     def sortestDistanceOfWord(text, str1, str2):
@@ -510,7 +513,7 @@ arrlcis = [1,3,5,4,7]
 print("longestContinuousIncreasingSubsequence: ", Methods.longestContinuousIncreasingSubsequence(arrlcis))
 print("sortestDistanceOfWord: ",
       Methods.sortestDistanceOfWord('practice makes perfect coding makes', 'practice', 'makes'))
-arrmcn = [1, 1, 0, 1, 1, 1]
+arrmcn = [8,1,1,1,1,2,2,3]
 print("mostConsecutiveNum: ", Methods.mostConsecutiveNum(arrmcn))
 arrstc = [8, 1, 2, 2, 3]
 print("smallerThenCurrent", Methods.smallerThenCurrent(arrstc))
