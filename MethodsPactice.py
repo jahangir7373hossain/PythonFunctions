@@ -506,6 +506,7 @@ class Methods:
                 longestOverAll = max(longestOverAll, longestTillNow)
             else:
                 longestOverAll = 1
+                longestTillNow = 0
         return longestOverAll
 
 
