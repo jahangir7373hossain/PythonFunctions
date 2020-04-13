@@ -509,12 +509,25 @@ class Methods:
                 longestTillNow = 0
         return longestOverAll
 
+    def bestTimetoBuyandSellStock(arr):
+        maxPrice = 0
+        minPrice = sys.maxsize
+        for i in arr:
+            if minPrice > i:
+                minPrice = i
+            else:
+                if maxPrice < i - minPrice:
+                    maxPrice = i - minPrice
+        return maxPrice
 
-arrlcis = [1,3,5,4,7]
+
+arrbtbss = [7, 1, 5, 3, 6, 4]
+print("bestTimetoBuyandSellStock: ", Methods.bestTimetoBuyandSellStock(arrbtbss))
+arrlcis = [1, 3, 5, 4, 7]
 print("longestContinuousIncreasingSubsequence: ", Methods.longestContinuousIncreasingSubsequence(arrlcis))
 print("sortestDistanceOfWord: ",
       Methods.sortestDistanceOfWord('practice makes perfect coding makes', 'practice', 'makes'))
-arrmcn = [8,1,1,1,1,2,2,3]
+arrmcn = [8, 1, 1, 1, 1, 2, 2, 3]
 print("mostConsecutiveNum: ", Methods.mostConsecutiveNum(arrmcn))
 arrstc = [8, 1, 2, 2, 3]
 print("smallerThenCurrent", Methods.smallerThenCurrent(arrstc))
